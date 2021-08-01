@@ -1,1 +1,1 @@
-Community setting up
+Logistic API setting up

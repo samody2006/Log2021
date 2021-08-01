@@ -2,20 +2,18 @@
 
 namespace App\Models;
 
-use App\Models\Otp;
-use App\Traits\AddUUID;
 use Illuminate\Support\Facades\Hash;
-use Spatie\Permission\Traits\HasRoles;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Notifications\ResetPasswordNotification;
+use App\Traits\AddUUID;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements JWTSubject
 {
-    use HasFactory, Notifiable, SoftDeletes, AddUUID,  HasRoles;
+    use HasFactory, Notifiable, SoftDeletes, AddUUID;
 
     /**
      * The attributes that are mass assignable.
@@ -24,6 +22,7 @@ class User extends Authenticatable implements JWTSubject
      */
     protected $fillable = [
         'fullname',
+        'phone',
         'email',
         'encodedKey',
         'password',
@@ -77,7 +76,6 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
-
 
     public function setPasswordAttribute($input) {
         if($input) {

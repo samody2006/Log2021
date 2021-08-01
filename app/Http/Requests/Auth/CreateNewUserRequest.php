@@ -25,7 +25,7 @@ class CreateNewUserRequest extends FormRequest
     {
         return [
             'fullname' => 'required|string|max:255',
-            'call_up_no' => 'required|string|max:255',
+            'phone' => 'string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'gender' => 'required|in:male,femail',
             'password' => ['required',
