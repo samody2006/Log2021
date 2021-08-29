@@ -31,7 +31,7 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'username' => 'required|string',
+            // 'username' => 'required|string',
             'password' => 'required|string',
         ];
     }
@@ -103,7 +103,7 @@ class LoginRequest extends FormRequest
      */
     public function findUsername()
     {
-        $login = request()->input('username');
+        $login = request()->input('email');
  
         $fieldType = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'phone';
  

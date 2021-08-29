@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\LocationController;
 use Illuminate\Support\Facades\Route;
 use Stevebauman\Location\Facades\Location;
 
@@ -25,6 +26,8 @@ Route::get('get-my-location', function() {
     $location = Location::get();
     return view('location', compact('location'));
 });
+
+Route::get('location',[LocationController::class, 'index']);
 
 Route::get('remove-spec', function () {
     function clean($string) {
