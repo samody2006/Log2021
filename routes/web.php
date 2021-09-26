@@ -38,3 +38,6 @@ Route::get('remove-spec', function () {
 
      return isValidAmount('30,00.00');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
