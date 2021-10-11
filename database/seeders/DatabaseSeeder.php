@@ -15,9 +15,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        DB::table('users')->insert([
+        DB::table('admins')->insert([
              
-                'fullname'          => 'Admin',
+                'name'          => 'Admin',
                 'email'         => 'admin@admin.com',
                 'password'      => bcrypt('123456'),
                 'created_at'    => date("Y-m-d H:i:s")
