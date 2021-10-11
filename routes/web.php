@@ -42,8 +42,10 @@ Route::get('remove-spec', function () {
 });
 
 Auth::routes();
-Route::get('/register', function() {return redirect('/login');});
-Route::post('/register', function() { return redirect('/login');});
+Route::get('/register', function() {return redirect('/admin/login');});
+Route::post('/register', function() { return redirect('/admin/login');});
+Route::get('/admin/register', function() {return redirect('/admin/login');});
+Route::post('/admin/register', function() { return redirect('/admin/login');});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
