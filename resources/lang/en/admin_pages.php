@@ -9,6 +9,7 @@ return [
     'riders' => 'Riders',
     'trips' => 'Trips',
     'admins' => 'Admins',
+    'map'=> 'Map',
     'admin_panel' => 'Management',
     'publish_your_products' => 'Publish/Edit your products',
     'save' => 'Save',

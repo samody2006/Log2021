@@ -8,16 +8,17 @@ use Stevebauman\Location\Facades\Location;
 
 class LocationController extends Controller
 {
-    public function index(Request $request) 
 
-    { 
+    // public function index(Request $request) 
 
-      $ip= $request->ip(); 
+    // { 
 
-      $data = \Location::get($ip); 
+    //   $ip= $request->ip(); 
+
+    //   $data = \Location::get($ip); 
       
 
       
 
-    } 
+    // } 
 }

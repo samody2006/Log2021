@@ -47,14 +47,7 @@ Route::post('/register', function() { return redirect('/admin/login');});
 Route::get('/admin/register', function() {return redirect('/admin/login');});
 Route::post('/admin/register', function() { return redirect('/admin/login');});
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
-// Route::group(['middleware' => 'auth:admin'], function () {
-    
-//     // Route::view('/admin', 'adminDashboard');
-//     Route::get('/admin', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('home');
-// });
 
 
     // Admin authentication 
@@ -74,13 +67,15 @@ Route::middleware(['auth:admin'])->group(function () { // check for autherizatio
     Route::get('/admin', [App\Http\Controllers\Admin\DashboardController::class, 'index']);
     Route::get('{locale}/admin', [App\Http\Controllers\Admin\DashboardController::class, 'index'])
             ->where('locale', implode('|', Config::get('app.locales')));
+
 ////////////// Admin controls(user)
-   Route::get('admin/users', [App\Http\Controllers\Admin\UsersController::class, 'index'])->where('locale', implode('|', Config::get('app.locales')));
-   Route::get('{locale}/admin/users', [App\Http\Controllers\Admin\UsersController::class, 'index']);
-   Route::post('admin/users', [App\Http\Controllers\Admin\UsersController::class, 'setUser'])->where('locale', implode('|', Config::get('app.locales')));
-   Route::post('{locale}/admin/users', [App\Http\Controllers\Admin\UsersController::class, 'setUser']);
-   Route::get('admin/delete/user/{userId}', [App\Http\Controllers\Admin\UsersController::class, 'deleteUser'])->where('locale', implode('|', Config::get('app.locales')));
-   Route::get('{locale}/admin/delete/user/{userId}', [App\Http\Controllers\Admin\UsersController::class, 'deleteUser']);
+Route::get('admin/users', [App\Http\Controllers\Admin\UsersController::class, 'index'])->where('locale', implode('|', Config::get('app.locales')));
+Route::get('{locale}/admin/users', [App\Http\Controllers\Admin\UsersController::class, 'index']);
+Route::post('admin/users', [App\Http\Controllers\Admin\UsersController::class, 'setUser'])->where('locale', implode('|', Config::get('app.locales')));
+Route::post('{locale}/admin/users', [App\Http\Controllers\Admin\UsersController::class, 'setUser']);
+Route::get('admin/delete/user/{userId}', [App\Http\Controllers\Admin\UsersController::class, 'deleteUser'])->where('locale', implode('|', Config::get('app.locales')));
+Route::get('{locale}/admin/delete/user/{userId}', [App\Http\Controllers\Admin\UsersController::class, 'deleteUser']);
+
 ////////////// Admin controls(admin)
 Route::get('admin/admins', [App\Http\Controllers\Admin\AdminsController::class, 'index'])->where('locale', implode('|', Config::get('app.locales')));
 Route::get('{locale}/admin/admins', [App\Http\Controllers\Admin\AdminsController::class, 'index']);
@@ -97,6 +92,19 @@ Route::post('{locale}/admin/riders', [App\Http\Controllers\Admin\RidersControlle
 Route::get('admin/delete/riders/{userId}', [App\Http\Controllers\Admin\RidersController::class, 'deleteUser'])->where('locale', implode('|', Config::get('app.locales')));
 Route::get('{locale}/admin/delete/riders/{userId}', [App\Http\Controllers\Admin\RidersController::class, 'deleteUser']);
 
+///////////// Admin controls(Orders)
+Route::get('admin/orders', [App\Http\Controllers\Admin\OrdersController::class, 'index'])->where('locale', implode('|', Config::get('app.locales')));
+Route::get('{locale}/admin/orders', [App\Http\Controllers\Admin\OrdersController::class, 'index']);
+Route::get('admin/fast/ord/is/viewed/{id}', [App\Http\Controllers\Admin\OrdersController::class, 'markFastOrder'])->where('locale', implode('|', Config::get('app.locales')));
+Route::get('{locale}/admin/fast/ord/is/viewed/{id}', [App\Http\Controllers\Admin\OrdersController::class, 'markFastOrder']);
+Route::post('admin/delete/orders/{userId}', [App\Http\Controllers\Admin\OrdersController::class, 'deleteUser'])->where('locale', implode('|', Config::get('app.locales')));
+Route::post('{locale}/admin/delete/orders/{userId}', [App\Http\Controllers\Admin\OrdersController::class, 'deleteUser']);
+Route::post('admin/changeOrderStatus', [App\Http\Controllers\Admin\OrdersController::class, 'changeStatus']);
+
+
+///////////// Admin (Map)
+Route::get('admin/map', [App\Http\Controllers\Admin\LocationController::class, 'index'])->where('locale', implode('|', Config::get('app.locales')));
+Route::get('{locale}/admin/orders', [App\Http\Controllers\Admin\OrdersController::class, 'index']);
 
 
 });

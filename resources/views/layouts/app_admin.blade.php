@@ -31,7 +31,6 @@
                                         <p>{{__('admin_pages.dashboard')}}</p>
                                     </a> 
                                 </li> 
-                                <li>
                                 
                                 <li>
                                     <a href="{{ lang_url('admin/orders') }}" class="btn waves-effect waves-light">
@@ -40,7 +39,7 @@
                                     </a> 
                                 </li>
                                 <li>
-                                    <a href="{{ lang_url('admin/carousel') }}" class="btn waves-effect waves-light">
+                                    <a href="{{ lang_url('admin/trips') }}" class="btn waves-effect waves-light">
                                         <i class="material-icons">view_carousel</i>
                                         <p>{{__('admin_pages.trips')}}</p>
                                     </a> 
@@ -55,6 +54,12 @@
                                     <a href="{{ lang_url('admin/riders') }}" class="btn waves-effect waves-light">
                                         <i class="material-icons">group</i>
                                         <p>{{__('admin_pages.riders')}}</p>
+                                    </a> 
+                                </li>
+                                <li>
+                                    <a href="{{ lang_url('admin/map') }}" class="btn waves-effect waves-light">
+                                        <i class="material-icons">map</i>
+                                        <p>{{__('admin_pages.map')}}</p>
                                     </a> 
                                 </li>
                                 <li>
@@ -155,5 +160,6 @@
         </script>
         <script src="{{ asset('js/placeholders.min.js') }}"></script>
         <script src="{{ asset('js/adminCustom.js') }}"></script> 
+        <script src="{{ asset('js/map.js') }}"></script>
     </body>
 </html>
